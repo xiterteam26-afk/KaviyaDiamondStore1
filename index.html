@@ -10,56 +10,54 @@
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: white; margin: 0; padding: 10px; overflow-x: hidden; }
         .container { width: 100%; max-width: 600px; margin: auto; padding-bottom: 120px; }
         
-        /* Premium Header & Badge */
         .header h1 { font-family: 'Orbitron'; font-size: 1.8rem; font-weight: 900; text-transform: uppercase; text-align: center; margin: 0; background: linear-gradient(90deg, #fff, var(--primary), var(--gold), #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; cursor: pointer; }
         @keyframes shine { to { background-position: 200% center; } }
-        .delivery-badge { background: rgba(0, 212, 255, 0.1); border: 1px solid var(--primary); color: var(--primary); display: inline-block; padding: 6px 18px; border-radius: 30px; font-size: 0.7rem; font-weight: 700; margin-top: 10px; animation: heartbeat 1.5s infinite; }
-        @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-
+        
         .section-title { font-family: 'Orbitron'; color: var(--primary); font-size: 0.85rem; margin: 40px 0 20px 0; display: flex; align-items: center; gap: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(to right, var(--primary), transparent); }
         
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        @media (min-width: 450px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-        
         .item-card { background: var(--card-glass); border-radius: 20px; padding: 18px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.2s; position: relative; cursor: pointer; }
-        .item-card:active { transform: scale(0.95); }
-        .badge { position: absolute; top: -5px; right: -5px; background: var(--primary); color: black; font-weight: 900; padding: 2px 8px; border-radius: 10px; font-size: 12px; display: none; box-shadow: 0 0 10px var(--primary); }
+        .badge { position: absolute; top: -5px; right: -5px; background: var(--primary); color: black; font-weight: 900; padding: 2px 8px; border-radius: 10px; font-size: 12px; display: none; }
         
         .img-box { width: 70px; height: 70px; margin: 0 auto 10px; }
         .img-box img { width: 100%; height: 100%; object-fit: contain; }
         .item-card h3 { font-size: 0.75rem; margin: 8px 0; color: #fff; height: 35px; }
         .item-card .price { color: var(--gold); font-weight: 900; font-size: 1.1rem; }
         
-        .cart-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 500px; background: rgba(0, 0, 0, 0.95); border: 1px solid var(--primary); border-radius: 25px; padding: 15px; display: none; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); z-index: 1000; box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-        
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); backdrop-filter: blur(10px); overflow-y: auto; }
-        .modal-content { background: #050505; margin: 20px auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 30px; border: 1px solid var(--primary); position: relative; }
-        input { width: 100%; padding: 14px; background: #111; border: 1px solid #222; border-radius: 12px; color: white; margin-bottom: 12px; box-sizing: border-box; font-size: 15px; }
-        .confirm-btn { width: 100%; padding: 16px; background: linear-gradient(45deg, var(--primary), #0044ff); border: none; border-radius: 12px; font-weight: 900; color: #fff; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .confirm-btn:hover { box-shadow: 0 0 15px var(--primary); }
-        
-        .bank-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.2); padding: 12px; border-radius: 15px; margin-bottom: 10px; }
-        .bank-card span { color: var(--primary); font-size: 10px; font-weight: 800; display: block; margin-bottom: 4px; }
-        .bank-card b { color: #fff; font-size: 14px; display: block; }
-        .bank-card i { color: #888; font-style: normal; font-size: 11px; }
+        /* Admin Panel */
+        #adminPanel { display: none; background: #0a0a0a; padding: 20px; border-radius: 20px; border: 2px solid var(--gold); margin-bottom: 20px; }
+        .admin-row { display: flex; gap: 5px; margin-bottom: 8px; }
+        .admin-row input { padding: 8px; background: #111; border: 1px solid #333; color: white; border-radius: 5px; font-size: 12px; }
 
-        .checkout-item { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #222; font-size: 0.85rem; }
-        #adminPanel { display: none; background: #0a0a0a; padding: 20px; border-radius: 20px; border: 1px solid var(--gold); margin-bottom: 20px; }
+        .cart-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 500px; background: rgba(0, 0, 0, 0.95); border: 1px solid var(--primary); border-radius: 25px; padding: 15px; display: none; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); z-index: 1000; }
+        .modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.98); backdrop-filter: blur(10px); overflow-y: auto; }
+        .modal-content { background: #050505; margin: 20px auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 30px; border: 1px solid var(--primary); }
+        
+        /* Bank Details Styling */
+        .bank-details-box { background: rgba(255, 255, 255, 0.03); border: 1px solid #333; border-radius: 15px; padding: 15px; margin-bottom: 20px; font-size: 12px; }
+        .bank-item { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+        .bank-item:last-child { border: none; }
+        .bank-name { color: var(--primary); font-weight: 900; display: block; margin-bottom: 4px; }
+        .bank-info { color: #ccc; line-height: 1.6; }
+        .bank-info b { color: #fff; }
+
+        input { width: 100%; padding: 14px; background: #111; border: 1px solid #222; border-radius: 12px; color: white; margin-bottom: 12px; box-sizing: border-box; }
+        .confirm-btn { width: 100%; padding: 16px; background: linear-gradient(45deg, var(--primary), #0044ff); border: none; border-radius: 12px; font-weight: 900; color: #fff; text-transform: uppercase; cursor: pointer; }
     </style>
 </head>
-<body onload="trackVisitor()">
+<body onload="initSite()">
 
 <div class="container">
     <div class="header">
         <h1 id="adminTrigger">KAVIYA DIAMOND STORE</h1>
-        <center><div class="delivery-badge">🚀 DELIVERY WITHIN 10 MINUTES</div></center>
+        <center><div style="font-size: 0.7rem; color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; margin-top: 10px; display: inline-block;">🚀 DELIVERY WITHIN 10 MINUTES</div></center>
     </div>
 
     <div id="adminPanel">
         <h3 style="color:var(--gold); font-family:Orbitron; font-size: 14px;">ADMIN PRICE SETTINGS</h3>
-        <div id="priceInputs" style="max-height: 250px; overflow-y: auto; margin-bottom: 10px;"></div>
-        <button class="confirm-btn" style="background:var(--gold); color:black;" onclick="savePrices()">Save New Prices</button>
+        <div id="priceInputs" style="max-height: 350px; overflow-y: auto; margin-bottom: 10px;"></div>
+        <button class="confirm-btn" id="saveBtn" style="background:var(--gold); color:black;" onclick="saveToCloud()">SAVE FOR EVERYONE</button>
     </div>
 
     <div class="section-title">Subscriptions</div><div id="subs-grid" class="grid"></div>
@@ -70,148 +68,174 @@
 
 <div id="cartBar" class="cart-bar">
     <div><span id="cartCount" style="color:var(--primary); font-weight:900;">0 Items</span><br><span id="cartTotal" style="color:var(--gold); font-size:1.2rem; font-weight:900;">0 LKR</span></div>
-    <button onclick="openCheckout()" class="confirm-btn" style="width:auto; padding: 10px 22px; border-radius: 15px;">CHECKOUT</button>
+    <button onclick="openCheckout()" class="confirm-btn" style="width:auto; padding: 10px 22px;">CHECKOUT</button>
 </div>
 
 <div id="mainModal" class="modal">
     <div class="modal-content">
-        <span style="position:absolute; right:20px; top:15px; cursor:pointer; color:#ff4444; font-size:2rem;" onclick="closeModal()">✕</span>
-        <h3 style="color: var(--primary); text-align: center; font-family: 'Orbitron';">PAYMENT</h3>
+        <h3 style="color: var(--primary); text-align: center; font-family: 'Orbitron'; font-size: 18px;">PAYMENT DETAILS</h3>
         
-        <div id="selectedItemsList" style="margin-bottom:15px; max-height: 150px; overflow-y: auto;"></div>
-        <div id="finalTotalDisplay" style="text-align:right; color:var(--gold); font-weight:900; font-size:1.2rem; margin-bottom:15px; border-top:1px dashed #444; padding-top:10px;">Total: 0 LKR</div>
-        
-        <div class="bank-card"><span>COMMERCIAL BANK</span><b>8028325273</b><i>K B DULANI | BANDARAWELA</i></div>
-        <div class="bank-card"><span>DIALOG FINANCE</span><b>001022035261</b><i>M M R I HANSAKA | BANDARAWELA</i></div>
-        <div class="bank-card" style="border-color: var(--gold);"><span>EZ CASH (+Rs.20)</span><b style="color:var(--gold)">0767650362</b><i>M M R I HANSAKA</i></div>
-        
-        <div id="formSection">
-            <input type="text" id="custName" placeholder="Player Name">
-            <input type="text" id="gameId" placeholder="Player ID (SG)">
-            <input type="number" id="custWhatsapp" placeholder="WhatsApp Number">
-            <p style="font-size: 10px; color: #888; margin-bottom: 5px;">Upload Receipt Image:</p>
-            <input type="file" id="receiptFile" accept="image/*">
-            <button class="confirm-btn" id="submitBtn" onclick="submitOrder()">SUBMIT ORDER</button>
+        <div class="bank-details-box">
+            <div class="bank-item">
+                <span class="bank-name">🏦 COMMERCIAL BANK</span>
+                <div class="bank-info">Acc No: <b>8028325273</b><br>Name: <b>K B DULANI</b><br>Branch: <b>BANDARAWELA</b></div>
+            </div>
+            <div class="bank-item">
+                <span class="bank-name">🏦 DIALOG FINANCE BANK</span>
+                <div class="bank-info">Acc No: <b>001022035261</b><br>Name: <b>M M R I HANSAKA</b><br>Branch: <b>HEAD OFFICE</b></div>
+            </div>
+            <div class="bank-item">
+                <span class="bank-name">📱 EZ CASH (+Rs.20)</span>
+                <div class="bank-info">Number: <b>0767650362</b><br><small style="color:var(--gold)">* EZ CASH දමද්දී රු.20ක් වැඩියෙන් දැමීම අනිවාර්ය වේ.</small></div>
+            </div>
         </div>
 
-        <div id="successArea" style="display:none; text-align:center; padding: 20px 0;">
-            <div style="font-size: 50px; margin-bottom: 10px;">✅</div>
-            <h3 style="color:white; margin-bottom: 20px;">Order Sent Successfully!</h3>
-            <a id="waFinalBtn" href="#" style="background:#25d366; color:white; padding:16px; border-radius:12px; display:block; text-decoration:none; font-weight:900; text-transform:uppercase;">Contact Admin (WhatsApp)</a>
-        </div>
+        <div id="selectedItemsList" style="margin-bottom: 10px; font-size: 13px; color: #aaa;"></div>
+        <div id="finalTotalDisplay" style="text-align:right; color:var(--gold); font-weight:900; font-size:1.3rem; margin:15px 0; border-top: 1px solid #333; padding-top: 10px;">Total: 0 LKR</div>
+        
+        <input type="text" id="custName" placeholder="Player Name">
+        <input type="text" id="gameId" placeholder="Player ID (Game ID)">
+        <input type="number" id="custWhatsapp" placeholder="WhatsApp Number">
+        <p style="font-size: 10px; color: #888; margin-bottom: 5px;">Upload Payment Receipt:</p>
+        <input type="file" id="receiptFile" accept="image/*">
+        <button class="confirm-btn" id="submitBtn" onclick="submitOrder()">SUBMIT ORDER</button>
+        <button onclick="closeModal()" style="background:none; border:none; color:red; width:100%; margin-top:10px; cursor:pointer;">Cancel</button>
     </div>
 </div>
 
 <script>
-    // Configs
-    const loginBotToken = "8034902862:AAFuyASTKlI8y2qESGEB2VQkFYUr4hKtyD8";
-    const orderBotToken = "8211414195:AAHMkvXNSpX0xAq47JXo1TZ-sOwtPrQ_EKg";
-    const commonChatId = "8199335471";
-    
-    let prices = JSON.parse(localStorage.getItem('kaviyaPrices')) || { weeklyLite: 120, weekly: 510, monthly: 2500, vip: 3010, vipPlus: 3130, svip: 4540, svipPlus: 4664, evo3d: 190, evo7d: 300, evo30d: 880, d25: 100, d50: 200, d75: 290, d100: 310, d150: 500, d200: 620, d310: 900, d520: 1500, d830: 2400, d1060: 2830, d2180: 5850, d3240: 8680, d5600: 14500, d8840: 23180, d11500: 29200, d23000: 58400, l6: 180, l10: 300, l15: 300, l20: 300, l25: 300, l30: 450, lFull: 1500 };
+    const BIN_ID = "65b4c106dc746540189b8700";
+    const API_KEY = "$2a$10$7XvRjWp7s.47fU2uR.CGe.yC.N.5p0Wv4rO7Y9Y.X.X.X";
+    const orderBot = "8211414195:AAHMkvNSpX0xAq47JXo1TZ-sOwtPrQ_EKg";
+    const chatId = "8199335471";
+
+    let shopData = {
+        subs: [{n:"Weekly LITE", p:120}, {n:"WEEKLY", p:510}, {n:"MONTHLY", p:2500}, {n:"VIP Pack", p:3010}, {n:"VIP PLUS", p:3130}, {n:"S VIP", p:4540}, {n:"S VIP PLUS", p:4664}],
+        evo: [{n:"E Bage 3 Days", p:190}, {n:"E Bage 7 Days", p:300}, {n:"E Bage 30 Days", p:880}],
+        diamonds: [{n:"25 Diamonds", p:100}, {n:"50 Diamonds", p:200}, {n:"75 Diamonds", p:290}, {n:"100 Diamonds", p:310}, {n:"150 Diamonds", p:500}, {n:"200 Diamonds", p:620}, {n:"310 Diamonds", p:900}, {n:"520 Diamonds", p:1500}, {n:"830 Diamonds", p:2400}, {n:"1060 Diamonds", p:2830}, {n:"2180 Diamonds", p:5850}, {n:"3240 Diamonds", p:8680}, {n:"5600 Diamonds", p:14500}, {n:"8840 Diamonds", p:23180}, {n:"11500 Diamonds", p:29200}, {n:"23000 Diamonds", p:58400}],
+        level: [{n:"L6 Pack", p:180}, {n:"L10 Pack", p:300}, {n:"L15 Pack", p:300}, {n:"L20 Pack", p:300}, {n:"L25 Pack", p:300}, {n:"L30 Pack", p:450}, {n:"L Full Pack", p:1500}]
+    };
+
     const imgs = { diamond: "https://i.ibb.co/hR9TGc87/A76-D3243-EFF1-48-FE-BF89-37183-BD6-B92-D.jpg", weekly: "https://i.ibb.co/JRR6qrmd/weekly.png", monthly: "https://i.ibb.co/JMKdP9x/monthly.png", lite: "https://i.ibb.co/BHT5PfDD/lite.png", evo: "https://i.ibb.co/PZ3tMNhT/17228-D01-B991-4-B75-9-E30-A9-C0-DBF9-FD0-C.jpg", level: "https://i.ibb.co/zVPYX8h4/0-CCA9900-2-E7-F-4-C0-F-9-AB4-F74-D7-DD3-E9-C0.webp" };
 
     let cart = {};
-    let tapCount = 0;
+    let taps = 0;
 
-    // Track Visitor (Bot 1)
-    async function trackVisitor() {
+    async function initSite() {
         render();
-        try {
-            const res = await fetch('https://ipapi.co/json/');
-            const d = await res.json();
-            const msg = `<b>👤 NEW VISITOR DETECTED</b>\n\n<b>IP:</b> ${d.ip}\n<b>City:</b> ${d.city}\n<b>Device:</b> ${navigator.platform}\n<b>ISP:</b> ${d.org}`;
-            fetch(`https://api.telegram.org/bot${loginBotToken}/sendMessage?chat_id=${commonChatId}&text=${encodeURIComponent(msg)}&parse_mode=HTML`);
-        } catch(e) {}
+        await loadFromCloud();
+        render();
     }
 
-    // Admin Panel
+    async function loadFromCloud() {
+        try {
+            const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, { headers: {"X-Master-Key": API_KEY} });
+            const data = await res.json();
+            if(data.record) shopData = data.record;
+        } catch(e) { console.log("Cloud fail"); }
+    }
+
+    function render() {
+        const grids = { subs: 'subs-grid', evo: 'evo-grid', diamonds: 'diamond-grid', level: 'level-grid' };
+        for(let key in grids) {
+            document.getElementById(grids[key]).innerHTML = shopData[key].map(item => `
+                <div class="item-card" onclick="addToCart('${item.n}', ${item.p})">
+                    <div class="badge" id="badge-${item.n.replace(/\s+/g,'')}">0</div>
+                    <div class="img-box"><img src="${getImg(item.n, key)}"></div>
+                    <h3>${item.n}</h3>
+                    <span class="price">${item.p} LKR</span>
+                </div>
+            `).join('');
+        }
+    }
+
+    function getImg(n, cat) {
+        if(n.includes("LITE")) return imgs.lite;
+        if(n.includes("MONTHLY") || n.includes("VIP")) return imgs.monthly;
+        if(cat === 'subs') return imgs.weekly;
+        return imgs[cat] || imgs.diamond;
+    }
+
     document.getElementById('adminTrigger').onclick = () => {
-        tapCount++;
-        if(tapCount === 8) {
-            if(prompt("Admin Password:") === "kaviya545@") { document.getElementById('adminPanel').style.display='block'; loadAdminInputs(); }
-            tapCount = 0;
+        taps++;
+        if(taps === 8) {
+            if(prompt("Admin Password:") === "kaviya545@") {
+                document.getElementById('adminPanel').style.display='block';
+                loadAdminFields();
+            }
+            taps = 0;
         }
     };
 
-    function loadAdminInputs() {
-        let h = ''; for(let k in prices) h += `<label style="font-size:10px;color:cyan">${k}:</label><input type="number" id="inp-${k}" value="${prices[k]}" style="padding:5px;height:25px;margin-bottom:5px;">`;
+    function loadAdminFields() {
+        let h = '';
+        for(let cat in shopData) {
+            h += `<div style="color:var(--primary); font-size:12px; margin:10px 0 5px; border-bottom: 1px solid #333;">${cat.toUpperCase()}</div>`;
+            shopData[cat].forEach((item, idx) => {
+                h += `<div class="admin-row">
+                    <input type="text" value="${item.n}" id="n-${cat}-${idx}" style="width:60%">
+                    <input type="number" value="${item.p}" id="p-${cat}-${idx}" style="width:35%">
+                </div>`;
+            });
+        }
         document.getElementById('priceInputs').innerHTML = h;
     }
 
-    function savePrices() {
-        for(let k in prices) prices[k] = document.getElementById(`inp-${k}`).value;
-        localStorage.setItem('kaviyaPrices', JSON.stringify(prices));
+    async function saveToCloud() {
+        const btn = document.getElementById('saveBtn'); btn.innerText = "UPDATING...";
+        for(let cat in shopData) {
+            shopData[cat].forEach((item, idx) => {
+                shopData[cat][idx].n = document.getElementById(`n-${cat}-${idx}`).value;
+                shopData[cat][idx].p = parseInt(document.getElementById(`p-${cat}-${idx}`).value);
+            });
+        }
+        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+            method: 'PUT',
+            headers: {"Content-Type": "application/json", "X-Master-Key": API_KEY},
+            body: JSON.stringify(shopData)
+        });
+        alert("Global Update Successful!");
         location.reload();
     }
 
-    // Shop Functions
-    function render() {
-        const sD = [["Weekly LITE", prices.weeklyLite, imgs.lite], ["WEEKLY", prices.weekly, imgs.weekly], ["MONTHLY", prices.monthly, imgs.monthly], ["VIP", prices.vip, imgs.monthly], ["VIP PLUS", prices.vipPlus, imgs.monthly], ["S VIP", prices.svip, imgs.monthly], ["S VIP PLUS", prices.svipPlus, imgs.monthly]];
-        document.getElementById('subs-grid').innerHTML = sD.map(i => cardHtml(i[0], i[1], i[2])).join('');
-        const eD = [["E Bage 3 Days", prices.evo3d, imgs.evo], ["E Bage 7 Days", prices.evo7d, imgs.evo], ["E Bage 30 Days", prices.evo30d, imgs.evo]];
-        document.getElementById('evo-grid').innerHTML = eD.map(i => cardHtml(i[0], i[1], i[2])).join('');
-        const dK = [25,50,75,100,150,200,310,520,830,1060,2180,3240,5600,8840,11500,23000];
-        document.getElementById('diamond-grid').innerHTML = dK.map(k => cardHtml(k+" Diamonds", prices['d'+k], imgs.diamond)).join('');
-        const lK = ['6','10','15','20','25','30','Full'];
-        document.getElementById('level-grid').innerHTML = lK.map(k => cardHtml("L"+k+" Pack", prices['l'+k], imgs.level)).join('');
-    }
-
-    function cardHtml(n, p, img) {
-        return `<div class="item-card" onclick="addToCart('${n}', ${p})"><div class="badge" id="badge-${n.replace(/ /g,'')}">0</div><div class="img-box"><img src="${img}"></div><h3>${n}</h3><span class="price">${p} LKR</span></div>`;
-    }
-
     function addToCart(n, p) {
-        if (!cart[n]) cart[n] = { price: p, qty: 0 };
+        if(!cart[n]) cart[n] = {p, qty:0};
         cart[n].qty++;
-        const badge = document.getElementById(`badge-${n.replace(/ /g,'')}`);
-        badge.innerText = cart[n].qty; badge.style.display = 'block';
-        updateCartBar();
+        const b = document.getElementById(`badge-${n.replace(/\s+/g,'')}`);
+        if(b) { b.innerText = cart[n].qty; b.style.display = 'block'; }
+        updateBar();
     }
 
-    function updateCartBar() {
-        let totalItems = 0, totalPrice = 0;
-        for (let k in cart) { totalItems += cart[k].qty; totalPrice += (cart[k].price * cart[k].qty); }
-        const bar = document.getElementById('cartBar');
-        if(totalItems > 0) {
-            bar.style.display = 'flex';
-            document.getElementById('cartCount').innerText = totalItems + " Items Selected";
-            document.getElementById('cartTotal').innerText = totalPrice + " LKR";
-        } else { bar.style.display = 'none'; }
+    function updateBar() {
+        let t = 0, q = 0;
+        for(let k in cart) { t += (cart[k].p * cart[k].qty); q += cart[k].qty; }
+        document.getElementById('cartBar').style.display = q > 0 ? 'flex' : 'none';
+        document.getElementById('cartCount').innerText = q + " Items Selected";
+        document.getElementById('cartTotal').innerText = t + " LKR";
     }
 
     function openCheckout() {
-        let h = '', total = 0;
-        for (let k in cart) { let sub = cart[k].price * cart[k].qty; total += sub; h += `<div class="checkout-item"><span>${k} x ${cart[k].qty}</span><span>${sub} LKR</span></div>`; }
+        let h = '', t = 0;
+        for(let k in cart) { let s = cart[k].p * cart[k].qty; t += s; h += `<div>${k} x ${cart[k].qty}</div>`; }
         document.getElementById('selectedItemsList').innerHTML = h;
-        document.getElementById('finalTotalDisplay').innerText = `Total: ${total} LKR`;
-        document.getElementById('formSection').style.display = 'block';
-        document.getElementById('successArea').style.display = 'none';
+        document.getElementById('finalTotalDisplay').innerText = "Total: " + t + " LKR";
         document.getElementById('mainModal').style.display = 'block';
     }
 
     function closeModal() { document.getElementById('mainModal').style.display = 'none'; }
 
-    // Submit Order (Bot 2)
     async function submitOrder() {
         const n = document.getElementById('custName').value, g = document.getElementById('gameId').value, p = document.getElementById('custWhatsapp').value, f = document.getElementById('receiptFile').files[0];
-        if(!n || !g || !p || !f) return alert("Fill all details first!");
-        
-        const btn = document.getElementById('submitBtn'); btn.innerText = "SENDING..."; btn.disabled = true;
-        
-        let orderText = '', finalTotal = 0;
-        for (let k in cart) { let sub = cart[k].price * cart[k].qty; finalTotal += sub; orderText += `▫️ ${k} x ${cart[k].qty} = ${sub} LKR\n`; }
-        
+        if(!n || !g || !p || !f) return alert("Please fill all details!");
+        const btn = document.getElementById('submitBtn'); btn.innerText = "SENDING...";
+        let orderTxt = ''; let total = 0;
+        for(let k in cart) { total += (cart[k].p * cart[k].qty); orderTxt += `✅ ${k} x ${cart[k].qty}\n`; }
         const fd = new FormData();
-        fd.append('chat_id', commonChatId); fd.append('photo', f); fd.append('parse_mode', 'HTML');
-        fd.append('caption', `<b>🎮 NEW ORDER RECEIVED</b>\n\n<b>Items:</b>\n${orderText}\n<b>💰 TOTAL: ${finalTotal} LKR</b>\n\n<b>Player:</b> ${n}\n<b>Game ID:</b> <code>${g}</code>\n<b>WhatsApp:</b> ${p}`);
-        
-        try {
-            await fetch(`https://api.telegram.org/bot${orderBotToken}/sendPhoto`, { method: 'POST', body: fd });
-            document.getElementById('formSection').style.display = 'none';
-            document.getElementById('successArea').style.display = 'block';
-            document.getElementById('waFinalBtn').href = `https://wa.me/94773847598?text=Order%20Sent!%20Total:%20${finalTotal}%20ID:%20${g}`;
-        } catch(e) { alert("Error sending order!"); btn.disabled = false; btn.innerText = "SUBMIT ORDER"; }
+        fd.append('chat_id', chatId); fd.append('photo', f); 
+        fd.append('caption', `🎮 *NEW ORDER FROM STORE*\n\n${orderTxt}\n*💰 TOTAL: ${total} LKR*\n\n*Name:* ${n}\n*Game ID:* \`${g}\`\n*WhatsApp:* ${p}`);
+        await fetch(`https://api.telegram.org/bot${orderBot}/sendPhoto`, { method: 'POST', body: fd });
+        alert("Order Sent Successfully!");
+        location.reload();
     }
 </script>
 </body>
